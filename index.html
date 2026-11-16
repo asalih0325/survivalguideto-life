@@ -49,7 +49,8 @@
    "https://www.listennotes.com/podcasts/survival-guide-to-life-ammaar-salih--mxpzj3BfPb/",
    "https://www.instagram.com/guide2lyfe",
    "https://www.facebook.com/share/1A7BraJysx/",
-   "https://www.linkedin.com/company/survival-guide-to-life/"
+   "https://www.linkedin.com/company/survival-guide-to-life/",
+   "https://www.youtube.com/@survivalguidetolifepodcast"
   ]
  },
  {
@@ -282,6 +283,30 @@ footer nav{display:flex;flex-wrap:wrap;gap:16px}
 footer nav a{text-decoration:none}
 footer nav a:hover{color:var(--fg)}
 
+/* videos */
+.player{position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:radial-gradient(120% 90% at 20% 10%,#3a1430,transparent 60%),radial-gradient(90% 80% at 90% 90%,#0f2c3a,transparent 60%),var(--ink-2);border:1px solid var(--line);box-shadow:0 30px 80px -40px var(--pink)}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.poster{all:unset;position:absolute;inset:0;cursor:pointer;display:grid;place-items:center;background-size:cover;background-position:center}
+.poster::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(12,8,17,.9))}
+.poster:focus-visible{outline:2px solid var(--mint);outline-offset:-4px}
+.playbtn{position:relative;z-index:1;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;background:var(--pink);color:#18030d;box-shadow:0 0 0 10px rgba(255,46,147,.18),0 14px 40px -10px var(--pink);transition:transform .2s}
+.poster:hover .playbtn{transform:scale(1.07)}
+.playbtn svg{width:34px;height:34px;margin-left:4px}
+.cap{position:absolute;z-index:1;left:22px;right:22px;bottom:18px;display:grid;gap:2px}
+.cap b{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(22px,3.4vw,40px);line-height:.95}
+.cap small{color:var(--muted);font-size:14px}
+.vids{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.vid a{display:grid;gap:10px;text-decoration:none;padding:8px;border-radius:16px;border:1px solid transparent;transition:background .2s,border-color .2s}
+.vid a:hover,.vid a[aria-current="true"]{background:var(--ink-2);border-color:var(--line)}
+.vid a[aria-current="true"] .th{outline:2px solid var(--pink);outline-offset:2px}
+.vid .th{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,var(--c,#ff2e93),#20162a 70%);background-size:cover;background-position:center;display:grid;place-items:center}
+.vid .th i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(12,8,17,.72);color:var(--fg);transition:background .2s}
+.vid a:hover .th i{background:var(--pink);color:#18030d}
+.vid .th svg{width:14px;height:14px;margin-left:2px}
+.vid h3{font-size:16px;font-weight:700;line-height:1.3;margin:0}
+.vid span.g{font-size:13px;color:var(--muted)}
+.btn.yt svg{width:20px;height:20px}
+
 @media (prefers-reduced-motion: reduce){
   .track{animation:none;flex-wrap:wrap;width:auto;row-gap:6px}
   .track [aria-hidden="true"]{display:none}
@@ -298,6 +323,7 @@ footer nav a:hover{color:var(--fg)}
   <nav class="tabs" aria-label="Main">
     <a href="#home" data-view="home">Home</a>
     <a href="#episodes" data-view="episodes">Episodes</a>
+    <a href="#videos" data-view="videos">Videos</a>
     <a href="#about" data-view="about">About</a>
     <a href="#shop" data-view="shop">Shop</a>
     <a href="#book" data-view="book" class="book">Book</a>
@@ -410,7 +436,8 @@ footer nav a:hover{color:var(--fg)}
           <div class="chips">
             <a class="chip" style="--c:#ff2e93" href="https://www.instagram.com/guide2lyfe" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17" cy="7" r=".8" fill="currentColor"/></svg></span><span><b>Instagram</b><small>@guide2lyfe</small></span><span class="arr">↗</span></a>
             <a class="chip" style="--c:#3cd6ff" href="https://www.facebook.com/share/1A7BraJysx/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.2h2.4l.4-2.9h-2.8V9.1c0-.8.3-1.4 1.4-1.4h1.5V5.1c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7v2.2H8.3v2.9h2.4V21z"/></svg></span><span><b>Facebook</b><small>Survival Guide to Life</small></span><span class="arr">↗</span></a>
-            <a class="chip" style="--c:#ffd23f" href="https://www.linkedin.com/company/survival-guide-to-life/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 9h-3v11h3zM5 4a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 5 4zm5 5h2.9v1.5c.5-.9 1.7-1.8 3.4-1.8 3.2 0 3.7 2.1 3.7 4.8V20h-3v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V20h-3z"/></svg></span><span><b>LinkedIn</b><small>Company page</small></span><span class="arr">↗</span></a></div>
+            <a class="chip" style="--c:#ffd23f" href="https://www.linkedin.com/company/survival-guide-to-life/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 9h-3v11h3zM5 4a1.75 1.75 0 1 0 0 3.5A1.75 1.75 0 0 0 5 4zm5 5h2.9v1.5c.5-.9 1.7-1.8 3.4-1.8 3.2 0 3.7 2.1 3.7 4.8V20h-3v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V20h-3z"/></svg></span><span><b>LinkedIn</b><small>Company page</small></span><span class="arr">↗</span></a>
+            <a class="chip" style="--c:#ff4d4d" href="https://www.youtube.com/@survivalguidetolifepodcast" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></span><span><b>YouTube</b><small>Watch the full episodes</small></span><span class="arr">↗</span></a></div>
         </div>
       </div>
     </div>
@@ -486,6 +513,79 @@ footer nav a:hover{color:var(--fg)}
       <div class="more">
         <a class="btn primary" href="https://open.spotify.com/show/5sLPaIy3OgQczFLkF4v9AA" target="_blank" rel="noopener">All episodes on Spotify</a>
         <a class="btn" href="https://podcasts.apple.com/us/podcast/survival-guide-to-life/id1515655790" target="_blank" rel="noopener">Apple Podcasts</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ VIDEOS ============ -->
+<div class="view" id="view-videos" data-view="videos" hidden>
+  <section class="band first" aria-labelledby="vid-h">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">On YouTube</span><h2 id="vid-h">Videos</h2></div>
+        <p>Watch the full conversations. Pick any video below to play it here, or catch every upload on the channel.</p>
+      </div>
+      <div class="player" id="ytPlayer">
+        <button type="button" class="poster" id="ytPoster" data-yt="WFQlTz4cre4" aria-label="Play Shifting Family Paradigms">
+          <span class="playbtn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <span class="cap"><span class="eyebrow">Now playing</span><b id="ytCapT">Shifting Family Paradigms</b><small id="ytCapG">with DeAnte Almore</small></span>
+        </button>
+      </div>
+      <ul class="vids" id="ytGrid">
+        <li class="vid"><a href="https://www.youtube.com/watch?v=WFQlTz4cre4" target="_blank" rel="noopener" data-yt="WFQlTz4cre4" data-t="Shifting Family Paradigms" data-g="with DeAnte Almore">
+          <span class="th" style="--c:#ff2e93"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>Shifting Family Paradigms</h3><span class="g">with DeAnte Almore</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=yiSizTUQTSY" target="_blank" rel="noopener" data-yt="yiSizTUQTSY" data-t="An Owner&#x27;s Manual for the Human Operating System" data-g="with life coach Glenn Cohen">
+          <span class="th" style="--c:#3cd6ff"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>An Owner&#x27;s Manual for the Human Operating System</h3><span class="g">with life coach Glenn Cohen</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=9P2JjLlbWxU" target="_blank" rel="noopener" data-yt="9P2JjLlbWxU" data-t="Storytelling" data-g="with Thomas Wilson">
+          <span class="th" style="--c:#a07bff"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>Storytelling</h3><span class="g">with Thomas Wilson</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=pwplxBbCWz0" target="_blank" rel="noopener" data-yt="pwplxBbCWz0" data-t="Cyber Salih: GRC Specialist" data-g="Security and compliance, from the inside">
+          <span class="th" style="--c:#ffd23f"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>Cyber Salih: GRC Specialist</h3><span class="g">Security and compliance, from the inside</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=WZUBsxc93kA" target="_blank" rel="noopener" data-yt="WZUBsxc93kA" data-t="GRC in Cybersecurity" data-g="Governance, risk and compliance explained">
+          <span class="th" style="--c:#3df5b0"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>GRC in Cybersecurity</h3><span class="g">Governance, risk and compliance explained</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=MaNzyyuRMQ0" target="_blank" rel="noopener" data-yt="MaNzyyuRMQ0" data-t="Unlocking Your Tech Potential" data-g="with John Barker">
+          <span class="th" style="--c:#ff2e93"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>Unlocking Your Tech Potential</h3><span class="g">with John Barker</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=GIw4ULmFv88" target="_blank" rel="noopener" data-yt="GIw4ULmFv88" data-t="Fueling Aesthetic Innovation" data-g="with Megan Smith and Ana Delgado">
+          <span class="th" style="--c:#3cd6ff"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>Fueling Aesthetic Innovation</h3><span class="g">with Megan Smith and Ana Delgado</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=moevX7mGUDE" target="_blank" rel="noopener" data-yt="moevX7mGUDE" data-t="From Chaos to Clarity: The Secrets of Clutter" data-g="with Star Hansen">
+          <span class="th" style="--c:#a07bff"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>From Chaos to Clarity: The Secrets of Clutter</h3><span class="g">with Star Hansen</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=63zLXH02kjM" target="_blank" rel="noopener" data-yt="63zLXH02kjM" data-t="The Agile Mindset" data-g="with Dr. Jeff Sutherland">
+          <span class="th" style="--c:#ffd23f"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>The Agile Mindset</h3><span class="g">with Dr. Jeff Sutherland</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=0KTzV681JDY" target="_blank" rel="noopener" data-yt="0KTzV681JDY" data-t="Spirit of a Hummingbird" data-g="with Dr. Felicia Heath">
+          <span class="th" style="--c:#3df5b0"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>Spirit of a Hummingbird</h3><span class="g">with Dr. Felicia Heath</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=eqljUdZr45Y" target="_blank" rel="noopener" data-yt="eqljUdZr45Y" data-t="Living Your Best Life" data-g="with therapist Shannon Petrovich">
+          <span class="th" style="--c:#ff2e93"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>Living Your Best Life</h3><span class="g">with therapist Shannon Petrovich</span>
+        </a></li>
+        <li class="vid"><a href="https://www.youtube.com/watch?v=-qYHE7Sam8o" target="_blank" rel="noopener" data-yt="-qYHE7Sam8o" data-t="A Life Truly Worth Living" data-g="with Dr. Marni Hill Foderaro">
+          <span class="th" style="--c:#3cd6ff"><i aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M3 1.5v9l7.5-4.5z"/></svg></i></span>
+          <h3>A Life Truly Worth Living</h3><span class="g">with Dr. Marni Hill Foderaro</span>
+        </a></li></ul>
+      <div class="more">
+        <a class="btn primary yt" href="https://www.youtube.com/@survivalguidetolifepodcast?sub_confirmation=1" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg>
+          Subscribe on YouTube</a>
+        <a class="btn" href="https://www.youtube.com/@survivalguidetolifepodcast/videos" target="_blank" rel="noopener">See every video</a>
       </div>
     </div>
   </section>
@@ -590,8 +690,9 @@ footer nav a:hover{color:var(--fg)}
   <div class="wrap meta">
     <span>Survival Guide to Life · hosted by Ammaar Salih · beats by @traxxndax</span>
     <nav aria-label="Footer">
-      <a href="#episodes">Episodes</a><a href="#about">About</a><a href="#shop">Shop</a><a href="#book">Book</a>
+      <a href="#episodes">Episodes</a><a href="#videos">Videos</a><a href="#about">About</a><a href="#shop">Shop</a><a href="#book">Book</a>
       <a href="https://www.instagram.com/guide2lyfe" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@survivalguidetolifepodcast/videos" target="_blank" rel="noopener">YouTube</a>
     </nav>
   </div>
 </footer>
@@ -602,11 +703,53 @@ const ART = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYF
 const BOOKING_URL = "https://calendly.com/g2lmrkting/guide2lyfe";
 const PILLARS = [{"key": "physical", "name": "Physical", "color": "#ff2e93"}, {"key": "mental", "name": "Mental", "color": "#3cd6ff"}, {"key": "spiritual", "name": "Spiritual", "color": "#a07bff"}, {"key": "financial", "name": "Financial", "color": "#ffd23f"}, {"key": "consistently", "name": "Consistently", "color": "#3df5b0"}];
 
+/* ---------- videos ---------- */
+(function(){
+  const HOSTED = true;
+  const grid = document.getElementById("ytGrid"), player = document.getElementById("ytPlayer");
+  if (!grid || !player) return;
+  const links = [...grid.querySelectorAll("a[data-yt]")];
+  const thumb = id => "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+  let loaded = false;
+  function paint(){
+    if (loaded || !HOSTED) return; loaded = true;
+    links.forEach(a => { a.querySelector(".th").style.backgroundImage = "url(" + thumb(a.dataset.yt) + ")"; });
+    const p = document.getElementById("ytPoster");
+    if (p) p.style.backgroundImage = "url(" + thumb(p.dataset.yt) + ")";
+  }
+  function play(id){
+    player.innerHTML = "";
+    const f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0&modestbranding=1";
+    f.title = "YouTube video player";
+    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    f.allowFullscreen = true; f.referrerPolicy = "strict-origin-when-cross-origin";
+    player.appendChild(f);
+  }
+  function select(a){
+    links.forEach(x => x.setAttribute("aria-current", x === a ? "true" : "false"));
+  }
+  if (!HOSTED) {
+    const p = document.getElementById("ytPoster");
+    p.addEventListener("click", () => window.open("https://www.youtube.com/watch?v=" + p.dataset.yt, "_blank", "noopener"));
+    return;
+  }
+  document.getElementById("ytPoster").addEventListener("click", e => play(e.currentTarget.dataset.yt));
+  links.forEach(a => a.addEventListener("click", e => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault(); select(a); play(a.dataset.yt);
+    player.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+  }));
+  if (links[0]) select(links[0]);
+  window.addEventListener("viewchange", e => { if (e.detail === "videos") paint(); });
+  if (location.hash === "#videos") paint();
+})();
+
 /* ---------- tabs ---------- */
 (function(){
   const views = [...document.querySelectorAll(".view")];
   const names = views.map(v => v.dataset.view);
-  const titles = { home:"Survival Guide to Life Podcast | Ammaar Salih", episodes:"Episodes | Survival Guide to Life", about:"About Ammaar Salih | Survival Guide to Life", shop:"Shop | Survival Guide to Life", book:"Be a Guest | Survival Guide to Life" };
+  const titles = { home:"Survival Guide to Life Podcast | Ammaar Salih", episodes:"Episodes | Survival Guide to Life", videos:"Videos | Survival Guide to Life", about:"About Ammaar Salih | Survival Guide to Life", shop:"Shop | Survival Guide to Life", book:"Be a Guest | Survival Guide to Life" };
   function route(){
     const h = decodeURIComponent(location.hash.slice(1));
     let name = names.includes(h) ? h : null, anchor = null;
