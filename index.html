@@ -257,6 +257,14 @@ h1 span{display:block}
 .soon .pill{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--ink)}
 .soon .pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:blink 1.6s ease-in-out infinite}
 @keyframes blink{50%{opacity:.25}}
+.soon .cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+.merch{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.merch a{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--fg);border-radius:20px;overflow:hidden;background:var(--ink-2);border:1px solid var(--line);transition:border-color .2s,transform .2s}
+.merch a:hover,.merch a:focus-visible{border-color:var(--pink);transform:translateY(-3px)}
+.merch img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:#f2f0f3}
+.merch .m{display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px}
+.merch b{font-family:var(--display);font-weight:700;font-size:20px;text-transform:uppercase;line-height:1.05}
+.merch span{font-family:var(--mono);font-size:13px;color:var(--muted)}
 .soon .tiles{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
 .soon .tiles span{font-family:var(--display);font-weight:700;font-size:20px;text-transform:uppercase;padding:10px 18px;border-radius:12px;border:1px dashed var(--line);color:var(--muted)}
 
@@ -312,7 +320,7 @@ footer nav a:hover{color:var(--fg)}
   .track [aria-hidden="true"]{display:none}
   .track-mask{-webkit-mask-image:none;mask-image:none}
   .foil,.soon .pill::before{animation:none}
-  .btn,.chip,.pillar{transition:none}
+  .btn,.chip,.pillar,.merch a{transition:none}
 }
 </style>
 </head>
@@ -641,11 +649,47 @@ footer nav a:hover{color:var(--fg)}
   <section class="wrap band first" aria-labelledby="shop-h">
     <div class="soon">
       <span class="eyebrow">Survival Guide to Life shop</span>
-      <h2 id="shop-h" class="word"><span class="foil">Coming</span><br>soon</h2>
-      <p>Gear for people who show up every day. The first drop is in the works.</p>
-      <span class="pill">In production</span>
-      <div class="tiles" aria-hidden="true"><span>Physical</span><span>Mental</span><span>Spiritual</span><span>Financial</span><span>Consistently</span></div>
+      <h2 id="shop-h" class="word"><span class="foil">First drop</span><br>is live</h2>
+      <p>Gear for people who show up every day. Every piece is printed to order and shipped to your door.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://survivalguidetolife.printful.me/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.5 12h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          Shop the store
+        </a>
+        <span class="pill">Printed on demand</span>
+      </div>
     </div>
+    <ul class="merch" aria-label="Products">
+      <li><a href="https://survivalguidetolife.printful.me/product/sgtl-wordmark-tee" target="_blank" rel="noopener">
+        <img src="https://cdn.printful.me/t/quick-stores/products/w168/19078112-71-6afb5599d1cc0__360" alt="Black tee with the big gradient LIFE wordmark" width="360" height="360" loading="lazy">
+        <span class="m"><b>SGTL Wordmark Tee</b><span>From $29</span></span>
+      </a></li>
+      <li><a href="https://survivalguidetolife.printful.me/product/sgtl-monogram-hoodie" target="_blank" rel="noopener">
+        <img src="https://cdn.printful.me/t/quick-stores/products/w168/19078112-146-6afb55307c076__360" alt="Black hoodie with the SGTL monogram ring" width="360" height="360" loading="lazy">
+        <span class="m"><b>SGTL Monogram Hoodie</b><span>From $55</span></span>
+      </a></li>
+      <li><a href="https://survivalguidetolife.printful.me/product/sgtl-embroidered-dad-hat" target="_blank" rel="noopener">
+        <img src="https://cdn.printful.me/t/quick-stores/products/w168/19078112-206-6afb54c3b8515__360" alt="Black dad hat with SURVIVAL GUIDE TO LIFE embroidered" width="360" height="360" loading="lazy">
+        <span class="m"><b>SGTL Embroidered Dad Hat</b><span>From $30</span></span>
+      </a></li>
+      <li><a href="https://survivalguidetolife.printful.me/product/sgtl-chest-logo-tee" target="_blank" rel="noopener">
+        <img src="https://cdn.printful.me/t/quick-stores/products/w168/19078112-71-6afb535c42732__360" alt="Heather grey tee with a small SGTL chest logo" width="360" height="360" loading="lazy">
+        <span class="m"><b>SGTL Chest Logo Tee</b><span>From $29</span></span>
+      </a></li>
+      <li><a href="https://survivalguidetolife.printful.me/product/sgtl-win-in-life-tote" target="_blank" rel="noopener">
+        <img src="https://cdn.printful.me/t/quick-stores/products/w168/19078112-367-6afb53c7aabef__360" alt="Black tote with the Win in Life badge" width="360" height="360" loading="lazy">
+        <span class="m"><b>SGTL Win in Life Tote</b><span>From $28</span></span>
+      </a></li>
+      <li><a href="https://survivalguidetolife.printful.me/product/sgtl-life-mug" target="_blank" rel="noopener">
+        <img src="https://cdn.printful.me/t/quick-stores/products/w168/19078112-19-6afb547426856__360" alt="White mug with the LIFE wordmark" width="360" height="360" loading="lazy">
+        <span class="m"><b>SGTL Life Mug</b><span>From $18</span></span>
+      </a></li>
+      <li><a href="https://survivalguidetolife.printful.me/product/sgtl-win-in-life-sticker" target="_blank" rel="noopener">
+        <img src="https://cdn.printful.me/t/quick-stores/products/w168/19078112-358-6afb5419f2815__360" alt="Round Win in Life badge sticker" width="360" height="360" loading="lazy">
+        <span class="m"><b>SGTL Win in Life Sticker</b><span>From $5</span></span>
+      </a></li>
+    </ul>
+    <p class="note">Checkout, shipping and returns are handled by Printful on the store page.</p>
   </section>
 </div>
 
